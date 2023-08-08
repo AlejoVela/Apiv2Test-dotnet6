@@ -70,11 +70,29 @@ namespace EmployeesAPI2.Application.ResourceFiles {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Invalid_Email.
+        /// </summary>
+        public static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Identificación Invalida.
         /// </summary>
         public static string InvalidIdentification {
             get {
                 return ResourceManager.GetString("InvalidIdentification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a invalid_password.
+        /// </summary>
+        public static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
             }
         }
         

@@ -70,11 +70,29 @@ namespace EmployeesAPI2.Application.ResourceFiles {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El email ingresado es invalido.
+        /// </summary>
+        public static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La identificación ingresada no corresponde a una indentificación valida para Colombia.
         /// </summary>
         public static string InvalidIdentification {
             get {
                 return ResourceManager.GetString("InvalidIdentification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña debe tener al menos una mayuscula, un caracter espacial y ser mayor a 8 caracteres.
+        /// </summary>
+        public static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
             }
         }
         

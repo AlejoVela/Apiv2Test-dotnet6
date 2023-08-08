@@ -120,8 +120,14 @@
   <data name="InvalidAge" xml:space="preserve">
     <value>Edad Invalida</value>
   </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Invalid_Email</value>
+  </data>
   <data name="InvalidIdentification" xml:space="preserve">
     <value>Identificación Invalida</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>invalid_password</value>
   </data>
   <data name="ParameterRequiered" xml:space="preserve">
     <value>Parametro requerido</value>

@@ -1,11 +1,12 @@
+using EmployeesAPI2.Application.Filters;
 using EmployeesAPI2.Application.Mappers;
 using EmployeesAPI2.Application.Mappers.interfaces;
-using EmployeesAPI2.Application.Models;
+using EmployeesAPI2.Application.Services;
+using EmployeesAPI2.Application.Services.Interfaces;
 using EmployeesAPI2.Application.Settings;
 using EmployeesAPI2.Infrastructure.interfaces;
 using EmployeesAPI2.Infrastructure.Models;
 using EmployeesAPI2.Infrastructure.Repository;
-using Mapster;
 using MongoDB.Driver;
 
 namespace EmployeesAPI2
@@ -23,6 +24,18 @@ namespace EmployeesAPI2
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Configuramos la politica de CORS
+            builder.Services.AddCors(option =>
+            {
+                option.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
             // * Configura la inyección de dependencias para MediatR
             builder.Services.AddMediatR(configuration =>
                 configuration.RegisterServicesFromAssemblies(typeof(Program).Assembly));
@@ -39,11 +52,15 @@ namespace EmployeesAPI2
             // * Configuramos en el inyector de dependencias la conexión a la base de datos de mongo
             builder.Services.AddSingleton(service =>
                 database.GetCollection<Employee>(mongoSettings.Collections.Employees));
+            builder.Services.AddSingleton(service =>
+                database.GetCollection<User>(mongoSettings.Collections.Users));
 
             // * Configuramos la inyeccion de los repositorios
             builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
+            builder.Services.AddSingleton<IUserRepository, UserRepository>();
             builder.Services.AddSingleton<IEmployeeMappers, EmployeeMappers>();
-
+            builder.Services.AddSingleton<IAuthentificationService, AuthentificationService>();
+            builder.Services.AddScoped<AuthorizationFilter>();
 
             var app = builder.Build();
 
@@ -53,6 +70,9 @@ namespace EmployeesAPI2
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            // Usamos la politica que configuramos previamente
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

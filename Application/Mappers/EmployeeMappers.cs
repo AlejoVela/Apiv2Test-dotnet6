@@ -19,5 +19,10 @@ namespace EmployeesAPI2.Application.Mappers
         {
             return employees.Adapt<List<EmployeeViewModel>>();
         }
+
+        public EmployeeViewModel MapFromEmployeeToEmployeeViewModel(Employee employee)
+        {
+            return employee.Adapt<EmployeeViewModel>();
+        }
     }
 }

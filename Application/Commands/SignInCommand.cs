@@ -3,8 +3,7 @@ using MediatR;
 
 namespace EmployeesAPI2.Application.Commands
 {
-    public class CreateEmployeeCommand : EmployeeCommand, IRequest<EmployeeViewModel>
+    public class SignInCommand : SignCommand, IRequest<TokenViewModel>
     {
-
     }
 }

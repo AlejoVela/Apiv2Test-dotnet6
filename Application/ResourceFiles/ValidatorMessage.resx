@@ -120,8 +120,14 @@
   <data name="InvalidAge" xml:space="preserve">
     <value>La edad ingresada no corresponde a una edad realista</value>
   </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>El email ingresado es invalido</value>
+  </data>
   <data name="InvalidIdentification" xml:space="preserve">
     <value>La identificación ingresada no corresponde a una indentificación valida para Colombia</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>La contraseña debe tener al menos una mayuscula, un caracter espacial y ser mayor a 8 caracteres</value>
   </data>
   <data name="ParameterRequired" xml:space="preserve">
     <value>El campo {PropertyName} es obligatorio</value>

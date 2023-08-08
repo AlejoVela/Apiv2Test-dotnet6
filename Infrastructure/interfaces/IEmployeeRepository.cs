@@ -6,7 +6,7 @@ namespace EmployeesAPI2.Infrastructure.interfaces
     {
         Task<Employee> CreateAsync(Employee employee);
 
-        Task<Employee> UpdateAsync(Employee employee, string id);
+        Task<Employee> UpdateByIdAsync(Employee employee);
 
         Task<bool> DeleteAsync(string id);
 
